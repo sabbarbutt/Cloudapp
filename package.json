@@ -4,10 +4,11 @@
   "description": "Music/video player to play music from SoundCloud and YouTube",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0",
+    "start": "node server.js",
     "build": "ng build",
     "release": "ng build --prod && npm run sw && cp CNAME ./dist",
     "lint": "ng lint",
+    "postinstall": "ng build --aot -prod",
     "sw": "sw-precache --root=dist --config=swconfig.js"
   },
   "keywords": [
@@ -23,6 +24,10 @@
     "video",
     "player"
   ],
+  "engines": {
+    "node": "6.11.0",
+    "npm": "5.6.0"
+  },
   "contributors": [
     "Cloud-Player Development Team <sabbar.butt@gmail.com> (https://github.com/sabbarbutt)"
   ],
@@ -50,6 +55,7 @@
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
     "core-js": "^2.5.1",
+    "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "localforage": "1.5.5",
     "moment": "^2.19.3",
